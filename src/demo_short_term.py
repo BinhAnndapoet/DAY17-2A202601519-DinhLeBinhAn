@@ -15,7 +15,7 @@ MESSAGES = [
 
 def main() -> None:
     for strategy in ("buffer", "summary", "sliding"):
-        memory = ShortTermMemory(strategy=strategy, max_recent_messages=6, pressure_tokens=300)
+        memory = ShortTermMemory(strategy=strategy, max_recent_messages=4, pressure_tokens=300)
         for role, content in MESSAGES:
             memory.add(role, content)
         console.print(Panel(memory.render(), title=f"{strategy} | {memory.stats()}"))
